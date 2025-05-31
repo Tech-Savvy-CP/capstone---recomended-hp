@@ -1,10 +1,13 @@
-import Phones from '../../data/ex_api';
-import ResultPresenter from './presenter-review';
-import { generatePhoneTemplate, generateCommentTemplate } from '../../templates';
-import 'bootstrap';
+import Phones from "../../data/ex_api";
+import ResultPresenter from "./presenter-review";
+import {
+  generatePhoneTemplate,
+  generateCommentTemplate,
+} from "../../templates";
+import "bootstrap";
 
 export default class ResultPage {
-#presenter;
+  #presenter;
   async render() {
     return `
          <section class="hero">
@@ -36,6 +39,7 @@ export default class ResultPage {
         <section class="popular-now result" style="background-image: linear-gradient(to bottom, #F6EBDA 50%, #fff 50%);" id="result">
             <div class="container mb-5">
                 <h4>Phone <span style="border-bottom: 3px solid #FF902A;">Result</span></h4>
+                <p>Data set 1 => HP</p>
                 <div class="container pb-5 mb-5"
                     style="background-image: linear-gradient(to bottom, #F6EBDA 30%, #F9D9AA 30%);">
                     <div class="row justify-content-center gap-5" id="phones">
@@ -50,6 +54,7 @@ export default class ResultPage {
             <div class="comment" id="review"  style="background-image: linear-gradient(to bottom, #F6EBDA 100%);">
                 <div class="container mb-5 mt-5">
                     <h1 >Ulasan Pengguna</h1>
+                    <p>Data set 2 => review</p>
                     <button id="toggleButton" class="toggle-button">Tampilkan Review</button>
                 </div>
                 <div class="container mb-5 mt-5" id="comment">
@@ -92,75 +97,88 @@ export default class ResultPage {
   async afterRender() {
     // Do your job here
     this.#presenter = new ResultPresenter({
-        model: Phones,
-        view : this,
+      model: Phones,
+      view: this,
     });
 
     await this.#presenter.showPhones();
-   
 
-    document.getElementById('toggleButton').addEventListener('click', function() {
-    const reviewSections = document.querySelectorAll('.review-section');
-    const button = document.getElementById('toggleButton');
+    document
+      .getElementById("toggleButton")
+      .addEventListener("click", function () {
+        const reviewSections = document.querySelectorAll(".review-section");
+        const button = document.getElementById("toggleButton");
 
-    let allVisible = true;
+        let allVisible = true;
 
-    reviewSections.forEach(function(section) {
-        if (section.style.display === "none" || section.style.display === "") {
-        allVisible = false;
+        reviewSections.forEach(function (section) {
+          if (
+            section.style.display === "none" ||
+            section.style.display === ""
+          ) {
+            allVisible = false;
+          }
+        });
+
+        if (allVisible) {
+          reviewSections.forEach(function (section) {
+            section.style.display = "none";
+          });
+          button.textContent = "Tampilkan Review";
+        } else {
+          reviewSections.forEach(function (section) {
+            section.style.display = "block";
+          });
+          button.textContent = "Sembunyikan Review";
         }
-    });
+      });
 
-    if (allVisible) {
-        reviewSections.forEach(function(section) {
-        section.style.display = "none";
-        });
-        button.textContent = "Tampilkan Review";
-    } else {
-        reviewSections.forEach(function(section) {
-        section.style.display = "block";
-        });
-        button.textContent = "Sembunyikan Review";
-    }
-    });
-
-     // Menambahkan event listener untuk tombol
-    document.getElementById('findNowButton').addEventListener('click', function() {
+    // Menambahkan event listener untuk tombol
+    document
+      .getElementById("findNowButton")
+      .addEventListener("click", function () {
         // Menggunakan JavaScript untuk scroll ke elemen dengan ID 'result'
-        document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
-    });
+        document
+          .getElementById("result")
+          .scrollIntoView({ behavior: "smooth" });
+      });
 
-    document.getElementById('findReviewButton').addEventListener('click', function() {
+    document
+      .getElementById("findReviewButton")
+      .addEventListener("click", function () {
         // Menggunakan JavaScript untuk scroll ke elemen dengan ID 'review'
-        document.getElementById('review').scrollIntoView({ behavior: 'smooth' });
-    });
+        document
+          .getElementById("review")
+          .scrollIntoView({ behavior: "smooth" });
+      });
 
-     await this.#presenter.showComment();
-
+    await this.#presenter.showComment();
   }
-  showComment(comment){
-        const html = comment.reduce(
-        (accumulator, currentValue) => accumulator.concat(generateCommentTemplate(currentValue)),
-        '',
+  showComment(comment) {
+    const html = comment.reduce(
+      (accumulator, currentValue) =>
+        accumulator.concat(generateCommentTemplate(currentValue)),
+      ""
     );
-    document.getElementById('comment').innerHTML = html;
+    document.getElementById("comment").innerHTML = html;
   }
 
-  showPhones(phones){
-        const html = phones.reduce(
-        (accumulator, currentValue) => accumulator.concat(generatePhoneTemplate(currentValue)),
-        '',
+  showPhones(phones) {
+    const html = phones.reduce(
+      (accumulator, currentValue) =>
+        accumulator.concat(generatePhoneTemplate(currentValue)),
+      ""
     );
-    document.getElementById('phones').innerHTML = html;
+    document.getElementById("phones").innerHTML = html;
   }
 
   showLoading() {
-    document.getElementById('loading-container').innerHTML = `
+    document.getElementById("loading-container").innerHTML = `
       <div class="loader"></div>
     `;
   }
   //fungsi untuk mengosongkan isi dari loading-container yang sebelumnya di isi dengan class loader
   hideLoading() {
-    document.getElementById('loading-container').innerHTML = '';
+    document.getElementById("loading-container").innerHTML = "";
   }
 }
