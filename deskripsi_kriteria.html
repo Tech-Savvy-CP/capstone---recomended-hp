@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deskripsi Kriteria Smartphone - PonselHub</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            /* Memberi ruang untuk fixed header agar konten tidak tertutup */
+            /* Sesuaikan nilainya dengan tinggi header Anda jika berbeda */
+            padding-top: 70px; 
+        }
+        .criteria-form-container {
+            background-color: #FFFFFF; /* Latar putih untuk form agar kontras dengan body cokelat susu */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Shadow halus */
+            margin-top: 20px; /* Jarak tambahan dari atas jika diperlukan */
+        }
+        .form-label {
+            font-weight: 500; /* Membuat label sedikit lebih tebal */
+        }
+        /* Pastikan footer tidak terlalu dekat jika konten sedikit */
+        /* Struktur body dan main untuk sticky footer sederhana */
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex-grow: 1; /* Konten utama mengambil ruang yang tersedia */
+        }
+        footer {
+            flex-shrink: 0; /* Mencegah footer mengecil */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">PonselHub</div>
+                <ul class="menu">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="tentang.html">Tentang</a></li>
+               
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container my-4"> 
+        <div class="criteria-form-container">
+            <h2 class="mb-3 text-center">Deskripsikan Kebutuhan Smartphone Anda</h2>
+            <p class="mb-4 text-center text-muted">
+                Bantu kami menemukan smartphone yang paling tepat untuk Anda dengan mengisi detail di bawah ini.
+            </p>
+            
+            <form id="formDeskripsiKriteriaPonsel">
+                <div class="row g-3">
+                    <div class="col-md-6 mb-3">
+                        <label for="filterBrandSebelumnya" class="form-label">Brand Pilihan (dari filter awal):</label>
+                        <input type="text" class="form-control" id="filterBrandSebelumnya" name="brand_awal_filter" readonly>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="filterHargaSebelumnya" class="form-label">Estimasi Harga (dari filter awal):</label>
+                        <input type="text" class="form-control" id="filterHargaSebelumnya" name="harga_awal_filter" readonly>
+                    </div>
+
+                    <div class="col-12">
+                        <hr class="my-3"> 
+                        <h4 class="mb-3">Detail Kriteria Tambahan:</h4>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="kegunaanUtamaSmartphone" class="form-label">Kegunaan Utama Smartphone:</label>
+                        <select class="form-select" id="kegunaanUtamaSmartphone" name="kegunaan_utama_pilihan">
+                            <option value="" selected disabled>Pilih kegunaan utama...</option>
+                            <option value="fotografi">Fotografi & Videografi</option>
+                            <option value="gaming">Gaming</option>
+                            <option value="produktivitas">Produktivitas (Email, Dokumen, Meeting)</option>
+                            <option value="media_sosial">Media Sosial & Browse</option>
+                            <option value="sehari_hari">Penggunaan Umum Sehari-hari</option>
+                            <option value="lainnya">Lainnya (jelaskan di bawah)</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="prioritasFiturUtama" class="form-label">Prioritas Fitur Utama:</label>
+                        <select class="form-select" id="prioritasFiturUtama" name="prioritas_fitur_pilihan">
+                            <option value="" selected disabled>Pilih prioritas fitur...</option>
+                            <option value="kamera">Kualitas Kamera</option>
+                            <option value="performa">Performa & Kecepatan</option>
+                            <option value="baterai">Daya Tahan Baterai</option>
+                            <option value="layar">Kualitas Layar</option>
+                            <option value="desain">Desain & Build Quality</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-12 mb-3">
+                        <label for="deskripsiDetailKebutuhanPengguna" class="form-label">Deskripsikan lebih detail kebutuhan Anda (wajib diisi):</label>
+                        <textarea class="form-control" id="deskripsiDetailKebutuhanPengguna" name="deskripsi_detail_pengguna" rows="4" placeholder="Contoh: Saya butuh HP dengan kamera yang sangat bagus untuk foto produk di malam hari, performa lancar untuk edit video ringan, dan baterai awet seharian. Budget sekitar 5-7 juta. NFC wajib ada." required></textarea>
+                    </div>
+
+                    <div class="col-12 mb-3">
+                        <label for="fiturSpesifikLainYangDiinginkan" class="form-label">Fitur spesifik lain yang diinginkan (opsional):</label>
+                        <textarea class="form-control" id="fiturSpesifikLainYangDiinginkan" name="fitur_tambahan_opsional" rows="2" placeholder="Contoh: Anti air (sertifikasi IP), wireless charging, audio jack 3.5mm, slot MicroSD, merek tertentu yang disukai/dihindari, dll."></textarea>
+                    </div>
+                    
+                    <div class="col-12 mt-3 text-center"> 
+                        <button type="submit" class="btn btn-primary btn-lg px-5">Cari Rekomendasi Saya</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="text-center py-4"> 
+        <div class="container">
+            <p class="mb-0">&copy; 2025 PonselHub. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Script khusus untuk halaman deskripsi_kriteria.html
+        document.addEventListener('DOMContentLoaded', function() {
+            const parameterURL = new URLSearchParams(window.location.search);
+            const brandDariURL = parameterURL.get('brand');
+            const hargaDariURL = parameterURL.get('price');
+
+            // Fungsi format Rupiah
+            function formatDisplayKeRupiah(nilai) {
+                if (!nilai) return 'Tidak Ditentukan'; 
+                if (isNaN(parseFloat(nilai))) return 'Format Harga Tidak Valid';
+                
+                return new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(parseFloat(nilai));
+            }
+
+            // Mengisi (pre-fill) field dengan data dari URL
+            const inputDisplayBrandAwal = document.getElementById('filterBrandSebelumnya');
+            const inputDisplayHargaAwal = document.getElementById('filterHargaSebelumnya');
+
+            if (inputDisplayBrandAwal) {
+                inputDisplayBrandAwal.value = brandDariURL ? decodeURIComponent(brandDariURL).charAt(0).toUpperCase() + decodeURIComponent(brandDariURL).slice(1) : 'Tidak Dipilih';
+            }
+            if (inputDisplayHargaAwal) {
+                inputDisplayHargaAwal.value = formatDisplayKeRupiah(hargaDariURL);
+            }
+
+            // Menangani submit form deskripsi kriteria
+            const formDeskripsiPonsel = document.getElementById('formDeskripsiKriteriaPonsel');
+            if (formDeskripsiPonsel) {
+                formDeskripsiPonsel.addEventListener('submit', function(event) {
+                    event.preventDefault(); 
+
+                    const deskripsiDetailPengguna = document.getElementById('deskripsiDetailKebutuhanPengguna').value.trim();
+                    if (deskripsiDetailPengguna === "") {
+                        alert('Mohon isi deskripsi detail kebutuhan Anda pada kolom yang tersedia.');
+                        document.getElementById('deskripsiDetailKebutuhanPengguna').focus();
+                        return; 
+                    }
+                    alert('Terima kasih atas informasinya! Data kriteria Anda akan kami proses. Fitur untuk menampilkan rekomendasi smartphone berdasarkan deskripsi ini akan segera hadir.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

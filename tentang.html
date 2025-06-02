@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - PonselHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Style khusus untuk halaman Tentang Kami, bisa juga ditambahkan ke styles.css utama */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(100, 70, 50, 0.7), rgba(74, 59, 49, 0.85)), url('images/background_tentang.jpg') no-repeat center center; /* Ganti dengan gambar latar yang relevan */
+            background-size: cover;
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+            margin-top: -75px; /* Menarik section ini ke atas, menutupi padding-top body */
+            padding-top: calc(75px + 80px); /* Kompensasi padding-top body + padding section normal */
+        }
+        .about-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .about-hero .lead-about {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            font-weight: 300;
+        }
+
+        .content-section-about {
+            padding: 60px 0;
+        }
+        .section-title-about {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4A3B31; /* Coklat tua pekat */
+            position: relative;
+        }
+        .section-title-about::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #B08D57; /* Gold lembut */
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .mission-vision-box {
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+            margin-bottom: 40px;
+        }
+        .mission-vision-box h3 {
+            color: #6F4E37; /* Coffee brown */
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .mission-vision-box h3 i {
+            font-size: 1.5rem;
+            margin-right: 12px;
+            color: #8B4513; /* SaddleBrown */
+        }
+        .mission-vision-box p {
+            color: #5a4a42; /* Coklat lebih lembut untuk teks */
+            line-height: 1.8;
+        }
+
+        .our-approach-item {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .our-approach-item .icon-circle {
+            width: 80px;
+            height: 80px;
+            background-image: linear-gradient(to bottom right, #8B4513, #A0522D);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 4px 10px rgba(139, 69, 19, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .our-approach-item:hover .icon-circle {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 6px 15px rgba(139, 69, 19, 0.4);
+        }
+        .our-approach-item h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #6F4E37;
+            margin-bottom: 10px;
+        }
+        .our-approach-item p {
+            font-size: 0.9rem;
+            color: #5a4a42;
+        }
+
+        .cta-section-about {
+            background-color: #EADDCA; /* Lighter milk coffee variant */
+            padding: 50px 0;
+            text-align: center;
+        }
+        .cta-section-about h2 {
+            color: #4A3B31;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+        /* Tombol akan menggunakan style .btn-keren-submit dari styles.css */
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">PonselHub <i class="fas fa-mobile-alt"></i></div>
+                <ul class="menu">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="tentang.html" class="active">Tentang Kami</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="about-hero">
+        <div class="container">
+            <h1>Mengenal PonselHub Lebih Dekat</h1>
+            <p class="lead lead-about">Kami adalah Budget Wise, platform rekomendasi smartphone yang dirancang untuk menyederhanakan perjalanan Anda menemukan gadget idaman, tanpa ribet, tanpa pusing!</p>
+        </div>
+    </section>
+
+    <section class="content-section-about">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="mission-vision-box">
+                        <h3><i class="fas fa-bullseye"></i>Misi Utama Kami (Budget Wise)</h3>
+                        <p>Di era teknologi yang serba cepat dengan pilihan smartphone yang tak terhitung, kami hadir sebagai solusi komprehensif. Misi kami adalah memberdayakan Anda, para konsumen, untuk mengambil keputusan pembelian smartphone yang cerdas dan tepat sasaran. Kami ingin Anda terbebas dari kerumitan memilah spesifikasi, fitur, dan harga yang bervariasi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="content-section-about bg-light-shade">
+        <div class="container">
+            <h2 class="section-title-about">Pendekatan Inovatif Kami</h2>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="our-approach-item">
+                        <div class="icon-circle"><i class="fas fa-cogs"></i></div>
+                        <h4>Teknologi Cerdas</h4>
+                        <p>Dengan integrasi machine learning dan data mining, kami memberikan rekomendasi akurat dan personal berdasarkan kriteria unik Anda: mulai dari budget, performa, kamera, baterai, hingga preferensi merek.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="our-approach-item">
+                        <div class="icon-circle"><i class="fas fa-database"></i></div>
+                        <h4>Informasi Terpusat</h4>
+                        <p>Kami mengkompilasi spesifikasi dari berbagai sumber secara otomatis, menghilangkan kebutuhan Anda menjelajahi YouTube, forum, dan situs review yang tak terhitung jumlahnya.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="our-approach-item">
+                        <div class="icon-circle"><i class="fas fa-balance-scale-right"></i></div>
+                        <h4>Analisis Komprehensif</h4>
+                        <p>Lebih dari sekadar spek teknis, kami mempertimbangkan citra merek, fitur unggulan, OS, penyimpanan, hingga desain fisik untuk rekomendasi yang benar-benar menyeluruh.</p>
+                    </div>
+                </div>
+            </div>
+             <div class="row mt-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="our-approach-item">
+                        <div class="icon-circle"><i class="fas fa-clock"></i></div>
+                        <h4>Hemat Waktu & Tepat Sasaran</h4>
+                        <p>Tujuan utama kami: menyederhanakan proses, menghemat waktu Anda, dan meningkatkan akurasi agar investasi teknologi Anda optimal untuk jangka panjang.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="our-approach-item">
+                        <div class="icon-circle"><i class="fas fa-hand-pointer"></i></div>
+                        <h4>Antarmuka User-Friendly</h4>
+                        <p>Dengan navigasi yang mudah dan sistem rekomendasi terstruktur, temukan smartphone sesuai budget dan kebutuhan tanpa khawatir ketinggalan zaman.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section-about">
+        <div class="container">
+            <h2>Siap Menemukan Smartphone Terbaik Anda?</h2>
+            <p class="lead mb-4">Jangan tunda lagi, mulailah perjalanan Anda bersama PonselHub sekarang!</p>
+            <a href="index.html" class="btn btn-primary btn-lg btn-keren-submit">
+                <i class="fas fa-arrow-right me-2"></i>Mulai Pencarian Sekarang!
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer-keren text-center py-5">
+        <div class="container">
+            <div class="logo-footer">PonselHub <i class="fas fa-mobile-alt"></i></div>
+            <p class="mt-2 mb-3 text-light-brown">Menemukan smartphone idaman jadi lebih mudah dan menyenangkan!</p>
+            <div class="social-icons-footer mb-3">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="mb-0 small text-light-brown">&copy; 2025 PonselHub. Dirancang dengan <i class="fas fa-heart text-danger"></i> untuk Anda.</p>
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> */}
+    <script src="script.js"></script> 
+</body>
+</html>

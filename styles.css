@@ -1,0 +1,646 @@
+/* CSS Reset & Font Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background-color: #FDFBF5; 
+    color: #4A3B31; 
+    line-height: 1.7; 
+    padding-top: 75px; 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+}
+main {
+    flex-grow: 1; 
+    width: 100%;
+}
+footer {
+    flex-shrink: 0; 
+}
+
+.container {
+    width: 90%;
+    max-width: 1140px; 
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- UTILITIES & ANIMATIONS --- */
+.text-highlight-gold {
+    color: #B08D57;
+    font-weight: 600;
+}
+.icon-motivasi-keren {
+    color: #8B4513; 
+    opacity: 0.9;
+    margin-bottom: 0.75rem !important;
+}
+.btn-keren-submit {
+    background-image: linear-gradient(to right, #8B4513 0%, #A0522D 50%, #8B4513 100%);
+    background-size: 200% auto; 
+    border: none;
+    color: white;
+    padding: 14px 35px; 
+    font-size: 1.1rem;
+    font-weight: 600; 
+    letter-spacing: 0.5px;
+    border-radius: 50px; 
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3); 
+    transition: all 0.4s ease-out;
+    text-transform: uppercase;
+}
+.btn-keren-submit:hover, .btn-keren-submit:focus {
+    transform: translateY(-4px) scale(1.02); 
+    box-shadow: 0 8px 20px rgba(139, 69, 19, 0.4);
+    background-position: right center; 
+    color: white; 
+}
+.btn-keren-submit i { 
+    transition: transform 0.3s ease;
+    margin-right: 8px; 
+}
+.btn-keren-submit:hover i {
+    transform: translateX(4px) rotate(10deg); 
+}
+
+.input-keren {
+    border-radius: 8px !important;
+    border: 1px solid #D2B48C !important;
+    padding-top: 0.75rem !important; 
+    padding-bottom: 0.75rem !important;
+    transition: all 0.3s ease;
+    background-color: #fff; 
+}
+.input-keren:focus {
+    border-color: #8B4513 !important;
+    box-shadow: 0 0 0 0.25rem rgba(139, 69, 19, 0.15) !important;
+    background-color: #fff !important; 
+}
+.form-label-keren {
+    color: #6F4E37; 
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+.form-label-keren i {
+    color: #A0522D; 
+}
+
+/* --- HEADER --- */
+header {
+    background-color: #6F4E37; 
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1030; 
+    padding: 10px 0; 
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1); 
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 1.7rem; 
+    font-weight: 700; 
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+.logo i {
+    margin-left: 5px;
+    color: #FFD700; 
+}
+.menu {
+    display: flex;         
+    list-style-type: none; 
+    margin: 0;             
+    padding: 0;            
+    align-items: center;   
+}
+.menu li {
+    margin-left: 30px;     
+}
+.menu li:first-child {
+    margin-left: 0;        
+}
+.menu a {
+    text-decoration: none;       
+    color: rgba(255, 255, 255, 0.85); 
+    font-weight: 500;          
+    font-size: 0.95rem;        
+    transition: color 0.3s ease, opacity 0.3s ease; 
+    text-transform: capitalize;  
+    padding-bottom: 8px;       
+    position: relative;        
+}
+.menu a::after { 
+    content: '';
+    position: absolute;
+    bottom: 0;                 
+    left: 0;
+    width: 0;                  
+    height: 2px;               
+    background-color: #FFD700; 
+    transition: width 0.3s ease-in-out; 
+}
+.menu a:hover, 
+.menu a.active { 
+    color: white;              
+    opacity: 1;
+}
+.menu a:hover::after,
+.menu a.active::after {
+    width: 100%;               
+}
+
+/* --- HERO SECTION (INDEX.HTML) --- */
+.hero-keren {
+    padding: 80px 0; 
+    background: linear-gradient(135deg, #F6EBDA 0%, #EADDCA 100%);
+    color: #3A2D27;
+    overflow: hidden; 
+    position: relative; 
+}
+.hero-keren .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; 
+    z-index: 2;
+}
+.hero-content-keren {
+    flex-basis: 55%; 
+    padding-right: 30px; 
+}
+.animate-hero-title { 
+    font-size: 3.2rem; 
+    font-weight: 800; 
+    line-height: 1.15;
+    color: #4A3B31;
+    margin-bottom: 20px;
+    animation: slideInFromLeft 1s ease-out;
+}
+.animate-hero-subtitle { 
+    font-size: 1.2rem; 
+    line-height: 1.8;
+    color: #5a4a42;
+    margin-bottom: 30px;
+    animation: slideInFromLeft 1s ease-out 0.2s; 
+    animation-fill-mode: backwards; 
+}
+.hero-image-container-3d {
+    flex-basis: 40%;
+    position: relative;
+    perspective: 1000px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px; 
+}
+.hero-image-3d-effect {
+    max-width: 85%; 
+    height: auto;
+    border-radius: 25px; 
+    box-shadow: 0 15px 35px rgba(74, 59, 49, 0.25);
+    transform: rotateY(-15deg) rotateX(5deg); 
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
+    position: relative; 
+    z-index: 5; 
+    animation: floatSlightly 8s ease-in-out infinite; 
+}
+.hero-image-container-3d:hover .hero-image-3d-effect {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.05); 
+}
+.hero-image-deco {
+    position: absolute;
+    opacity: 0.3;
+    filter: blur(1px);
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.hero-image-deco[style*="--i:1"] { 
+    width: 60%; 
+    top: -10%;
+    left: -15%;
+    transform: translateZ(-80px) rotateY(-25deg);
+    z-index: 1;
+}
+.hero-image-deco[style*="--i:2"] { 
+    width: 50%;
+    bottom: -12%;
+    right: -10%;
+    transform: translateZ(-50px) rotateY(20deg);
+    z-index: 1;
+}
+.hero-image-container-3d:hover .hero-image-deco[style*="--i:1"] {
+    transform: translateZ(-100px) rotateY(-30deg) translateX(-10px);
+}
+.hero-image-container-3d:hover .hero-image-deco[style*="--i:2"] {
+    transform: translateZ(-70px) rotateY(25deg) translateX(10px);
+}
+
+@keyframes slideInFromLeft {
+    0% { transform: translateX(-50px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes floatSlightly { 
+    0%, 100% { transform: translateY(0) rotateY(-15deg) rotateX(5deg); }
+    50% { transform: translateY(-10px) rotateY(-12deg) rotateX(3deg); }
+}
+
+/* --- SECTION DESKRIPSI PENGGUNA (INDEX.HTML) --- */
+.deskripsi-pengguna-section-keren {
+    background-color: #FFFFFF; 
+    border-top: 1px solid #EADDCA;
+    border-bottom: 1px solid #EADDCA;
+    padding-top: 50px; 
+    padding-bottom: 50px; 
+}
+.deskripsi-form-box { 
+    background-color: #FDFBF5; 
+    padding: 40px; 
+    border-radius: 15px; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+.deskripsi-form-box h2 {
+    font-weight: 700;
+    color: #4A3B31;
+}
+.deskripsi-form-box .lead-sm { 
+    font-size: 1rem;
+    color: #6F4E37;
+}
+
+/* --- BRANDS SECTION (INDEX.HTML) --- */
+.brands-keren {
+    padding: 60px 0;
+    background-color: #F6EBDA; 
+}
+.section-title-keren-alt { 
+    font-weight: 700;
+    color: #4A3B31;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+    font-size: 2rem;
+}
+.section-title-keren-alt::after { 
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-image: linear-gradient(to right, #B08D57, #8B4513); 
+    border-radius: 2px;
+}
+.brand-logos-keren {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; 
+    gap: 20px; 
+    flex-wrap: wrap; 
+}
+.brand-logo-item {
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 120px; 
+    text-align: center;
+}
+.brand-logo-item img {
+    height: 45px; 
+    object-fit: contain; 
+    filter: grayscale(50%); 
+    transition: filter 0.3s ease;
+}
+.brand-logo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.brand-logo-item:hover img {
+    filter: grayscale(0%); 
+}
+
+/* --- HALAMAN FILTER (PENCARIAN.HTML) --- */
+.deskripsi-ringkasan-box .card-header.header-ringkasan {
+    background-color: #EADDCA !important; 
+    border-bottom: 1px solid #D2B48C;
+}
+.deskripsi-ringkasan-box .card-header.header-ringkasan h5 {
+    color: #6F4E37 !important;
+    font-weight: 600;
+}
+.deskripsi-ringkasan-box .card-body.body-ringkasan p {
+    color: #4A3B31;
+    font-size: 0.9rem; 
+}
+.filter-section-box-keren { 
+    background-color: #FFFFFF;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+.title-filter-box-keren {
+    color: #4A3B31;
+    font-weight: 700; 
+    font-size: 1.5rem;
+}
+
+/* Custom Range Slider (Filter Page) */
+.custom-range-keren {
+    padding: 0; 
+    /* background: transparent; Dihapus agar bisa di-override oleh track style */
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px; 
+    border-radius: 5px;
+    /* background-color: #E0D3C0; Dihapus, warna diatur di track */
+    outline: none;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* WARNA TRACK SLIDER */
+.custom-range-keren::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #A0522D; /* WARNA COKELAT (Sienna) UNTUK TRACK */
+    border-radius: 5px;
+}
+
+.custom-range-keren::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #A0522D; /* WARNA COKELAT (Sienna) UNTUK TRACK */
+    border-radius: 5px;
+    border: none; 
+}
+
+.custom-range-keren::-ms-track { 
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: transparent; 
+    border-color: transparent;
+    color: transparent;
+    border-width: 8px 0; 
+}
+.custom-range-keren::-ms-fill-lower { 
+    background: #A0522D; /* WARNA COKELAT (Sienna) */
+    border-radius: 5px;
+}
+.custom-range-keren::-ms-fill-upper { 
+    background: #D2B48C; /* Warna track yang belum terisi (Tan) atau samakan dengan #A0522D */
+    border-radius: 5px;
+}
+/* AKHIR WARNA TRACK SLIDER */
+
+.custom-range-keren::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px; 
+    height: 22px;
+    border-radius: 50%;
+    background-color: #8B4513; 
+    cursor: pointer;
+    border: 3px solid #FDFBF5; 
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    margin-top: -7px; 
+}
+.custom-range-keren::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #8B4513;
+    cursor: pointer;
+    border: 3px solid #FDFBF5;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+.custom-range-keren::-ms-thumb { 
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #8B4513;
+    cursor: pointer;
+    border: 3px solid #FDFBF5;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    margin-top: 0px; 
+}
+
+.price-range-labels-keren span { 
+    color: #5a4a42;
+    font-size: 0.9rem;
+}
+.harga-live-keren { 
+    font-weight: 700; 
+    color: #8B4513; 
+    font-size: 1.05rem; 
+    background-color: rgba(246, 235, 218, 0.7); 
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+.form-check-input:checked { 
+    background-color: #8B4513;
+    border-color: #8B4513;
+}
+
+
+/* --- KARTU REKOMENDASI (PENCARIAN.HTML) --- */
+.rekomendasi-hasil-container-keren {
+    padding-top: 30px;
+}
+.rekomendasi-card-keren { 
+    border: 1px solid #EADDCA;
+    border-radius: 12px;
+    overflow: hidden; 
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
+}
+.rekomendasi-card-keren:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12); 
+}
+.rasio-gambar-rekomendasi {
+    position: relative;
+    width: 100%;
+    padding-top: 66.66%; 
+    overflow: hidden;
+    background-color: #f0f0f0; 
+}
+.rasio-gambar-rekomendasi img.card-img-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+.rekomendasi-card-keren .card-body {
+    padding: 20px; 
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+.rekomendasi-card-keren .card-title {
+    color: #6F4E37; 
+    font-weight: 700; 
+    font-size: 1.15rem; 
+    margin-bottom: 8px;
+}
+.rekomendasi-card-keren .harga-rekomendasi-keren {
+    font-size: 1.25rem; 
+    font-weight: 700; 
+    color: #8B4513; 
+    margin-bottom: 10px;
+}
+.rekomendasi-card-keren .fitur-unggulan {
+    font-size: 0.8rem; 
+    color: #5a4a42;
+    margin-bottom: 12px;
+    flex-grow: 1; 
+}
+.rekomendasi-card-keren .card-footer {
+    background-color: transparent; 
+    border-top: 1px solid #F0E6D6; 
+    padding: 15px 20px;
+    margin-top: auto; 
+}
+.btn-outline-primary-keren { 
+    border-color: #A0522D;
+    color: #A0522D;
+    font-weight: 600; 
+    border-radius: 50px;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+    width: 100%; 
+}
+.btn-outline-primary-keren:hover {
+    background-color: #A0522D;
+    color: white;
+    transform: scale(1.03); 
+}
+
+
+/* --- FOOTER --- */
+.footer-keren {
+    background-color: #4A3B31; 
+    color: rgba(255, 255, 255, 0.7); 
+    padding: 40px 0;   
+}
+.logo-footer {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+.logo-footer i {
+    color: #FFD700;
+}
+.text-light-brown { 
+    color: #EADDCA; 
+}
+.social-icons-footer a {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.3rem;
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-icons-footer a:hover {
+    color: #FFD700;
+    transform: translateY(-3px);
+}
+
+/* Penyesuaian Bootstrap Form Elements */
+.form-select, .form-control { 
+    border-radius: 6px; 
+    border: 1px solid #D2B48C;
+    padding: 0.6rem 0.75rem; 
+}
+.form-select:focus, .form-control:focus { 
+    border-color: #8B4513;
+    box-shadow: 0 0 0 0.2rem rgba(139, 69, 19, 0.15);
+}
+.form-label { 
+    color: #4A3B31; 
+    margin-bottom: 0.3rem; 
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) { 
+    .hero-content-keren { max-width: 100%; text-align: center; padding-right: 0; margin-bottom: 30px;}
+    .hero-keren .container { flex-direction: column-reverse; } 
+    .hero-image-container-3d { max-width: 60%; margin-bottom: 30px; min-height: auto; } 
+    .hero-image-3d-effect { transform: rotateY(0deg) rotateX(0deg); max-width: 100%; } 
+    .hero-image-container-3d:hover .hero-image-3d-effect { transform: scale(1.03); } 
+    .animate-hero-title { font-size: 2.5rem; animation: none; } 
+    .animate-hero-subtitle { font-size: 1.1rem; animation: none; }
+    .deskripsi-form-box { padding: 30px 20px; } 
+    .brand-logos-keren { justify-content: center; } 
+    .brand-logo-item { min-width: 90px; padding: 8px; } 
+    .brand-logo-item img { height: 30px; }
+}
+
+@media (max-width: 768px) { 
+    body { padding-top: 60px; } 
+    header { padding: 8px 0; } 
+    .logo { font-size: 1.4rem; } 
+    .navbar { /* Hamburger menu logic (not covered by CSS alone) would be needed here for better UX */ }
+    .menu { justify-content: center; }
+    .menu li { margin-left: 10px; margin-right: 10px; } 
+    .menu a { font-size: 0.85rem; padding-bottom: 5px;}
+
+    .hero-keren { padding: 30px 0; }
+    .hero-content-keren h1 { font-size: 1.8rem; }
+    .hero-content-keren h4 { font-size: 0.95rem; }
+    .hero-image-container-3d { max-width: 70%; }
+    
+    .deskripsi-pengguna-section-keren { padding: 25px 0; }
+    .deskripsi-form-box h2 { font-size: 1.4rem; }
+    .deskripsi-form-box .lead-sm { font-size: 0.85rem; }
+    .btn-keren-submit { padding: 12px 25px; font-size: 1rem; }
+    
+    .filter-section-box-keren { padding: 25px 15px; }
+    .title-filter-box-keren { font-size: 1.2rem; }
+    .filter-section-box-keren .form-label-keren {font-size: 0.9rem;} 
+    .filter-section-box-keren .form-select-lg, .filter-section-box-keren .input-keren { font-size: 0.9rem;} 
+
+    
+    .brands-keren { padding: 30px 0; }
+    .section-title-keren-alt { font-size: 1.4rem; }
+
+    .rekomendasi-card-keren .card-title { font-size: 1.05rem;}
+    .rekomendasi-card-keren .harga-rekomendasi-keren { font-size: 1.15rem;}
+
+
+    .footer-keren { padding: 25px 0; }
+    .text-light-brown { font-size: 0.85rem;}
+    .social-icons-footer a { font-size: 1.1rem; margin: 0 8px;}
+}
+
+@media (max-width: 576px) { 
+    .hero-content-keren h1 { font-size: 1.6rem; }
+    .hero-content-keren h4 { font-size: 0.85rem; }
+    .menu li { margin-left: 8px; margin-right: 8px;} 
+    .menu a { font-size: 0.8rem; }
+    .btn-keren-submit { padding: 10px 20px; font-size: 0.9rem; }
+    .deskripsi-form-box { padding: 20px 15px; }
+}

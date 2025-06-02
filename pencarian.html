@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Detail Smartphone - PonselHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">PonselHub <i class="fas fa-mobile-alt"></i></div>
+                <ul class="menu">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="tentang.html">Tentang Kami</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container my-4 py-4"> 
+        <div class="text-center mb-5">
+            <i class="fas fa-sliders-h fa-3x mb-3 icon-motivasi-keren"></i>
+            <h2>Langkah Akhir: Saring Pilihanmu!</h2>
+            <p class="lead text-muted">
+                Sesuaikan brand dan harga untuk mendapatkan daftar smartphone yang paling cocok.
+            </p>
+        </div>
+
+        <div class="deskripsi-ringkasan-box mb-4" id="ringkasanDeskripsiFilter" style="display: none;">
+            <div class="card shadow-sm">
+                <div class="card-header header-ringkasan">
+                    <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Kebutuhan Awalmu:</h5>
+                </div>
+                <div class="card-body body-ringkasan">
+                    <p id="infoKegunaanRingkasan" class="mb-1"></p>
+                    <p id="infoPrioritasRingkasan" class="mb-1"></p>
+                    <p id="infoDetailDeskripsiRingkasan" class="mb-0"></p>
+                </div>
+            </div>
+        </div>
+
+        <section class="filter-section-box-keren p-lg-5 p-4">
+            <h4 class="mb-4 text-center title-filter-box-keren">Atur Filter Brand & Harga</h4>
+            <form class="row g-lg-4 g-3 align-items-center" id="formFilterSmartphonePage">
+                <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
+                    <label for="brandSelectFilterPage" class="form-label-keren"><i class="fas fa-copyright me-2"></i>Pilih Brand</label>
+                    <select class="form-select form-select-lg input-keren" id="brandSelectFilterPage" name="brand_pilihan_filter">
+                        <option selected value="">-- Semua Brand --</option>
+                        <option value="samsung">Samsung</option>
+                        <option value="apple">Apple (iPhone)</option>
+                        <option value="xiaomi">Xiaomi</option>
+                        <option value="oppo">Oppo</option>
+                    </select>
+                </div>
+
+                <div class="col-lg-6 col-md-12 mb-3 mb-lg-0">
+                    <label for="priceRangeFilterPage" class="form-label-keren"><i class="fas fa-wallet me-2"></i>Budget Kamu</label>
+                    <input type="range" 
+                           class="form-range custom-range-keren" 
+                           id="priceRangeFilterPage" 
+                           name="price_range_pilihan_filter" 
+                           min="1000000" 
+                           max="20000000" 
+                           step="250000"
+                           value="1000000">
+                    <div class="d-flex justify-content-between small mt-1 price-range-labels-keren">
+                        <span>Rp 1 JT</span>
+                        <span id="selectedPriceValueFilterPage" class="harga-live-keren">Rp 1.000.000</span>
+                        <span>Rp 20 JT</span>
+                    </div>
+                    <div class="form-check mt-2">
+                        <input class="form-check-input" type="checkbox" value="" id="selectAllPriceRange">
+                        <label class="form-check-label" for="selectAllPriceRange">
+                            Gunakan Semua Rentang Harga (1JT - 20JT)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-12 text-center text-lg-end mt-3 mt-lg-0 align-self-lg-end">
+                    <button type="submit" id="tombolSubmitFilterPage" class="btn btn-primary btn-lg btn-keren-submit w-100">
+                        <i class="fas fa-paper-plane me-2"></i>Lihat Hasil
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="rekomendasi-hasil-container-keren mt-5" id="hasilRekomendasiFinalDiPage" style="display:none;">
+            <h3 class="mb-4 text-center section-title-keren-alt">Ini Dia Rekomendasi Terbaik Untukmu!</h3>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="outputRekomendasiDiPage">
+                {/* Kartu-kartu rekomendasi akan muncul di sini */}
+            </div>
+             <div class="text-center mt-4 pt-2" id="pesanErrorRekomendasi" style="display:none;">
+                <p class="lead text-danger"><i class="fas fa-exclamation-triangle me-2"></i>Oops! Sepertinya belum ada yang pas. Coba sesuaikan filtermu lagi ya!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-keren text-center py-5">
+        <div class="container">
+            <div class="logo-footer">PonselHub <i class="fas fa-mobile-alt"></i></div>
+            <p class="mt-2 mb-3 text-light-brown">Menemukan smartphone idaman jadi lebih mudah dan menyenangkan!</p>
+            <div class="social-icons-footer mb-3">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="mb-0 small text-light-brown">&copy; 2025 PonselHub. Dirancang dengan <i class="fas fa-heart text-danger"></i> untuk Anda.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

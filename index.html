@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PonselHub - Temukan Smartphone Impian Anda!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">PonselHub <i class="fas fa-mobile-alt"></i></div>
+                <ul class="menu">
+                    <li><a href="index.html" class="active">Beranda</a></li>
+                    <li><a href="tentang.html">Tentang Kami</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-keren">
+        <div class="container">
+            <div class="hero-content-keren">
+                <h1 class="animate-hero-title">Smartphone Impianmu, Selangkah Lagi!</h1>
+                <p class="lead animate-hero-subtitle">Mulai dengan ceritakan apa yang kamu cari, biarkan kami memandu menemukan yang paling pas dan paling <span class="text-highlight-gold">WOW</span> untukmu!</p>
+            </div>
+            <div class="hero-image-container-3d">
+                <img src="images/ponsel.png" alt="Smartphone Unggulan" class="hero-image-3d-effect">
+                 <img src="images/ponsel.png" alt="Deco 1" class="hero-image-deco" style="--i:1;">
+                 <img src="images/ponsel.png" alt="Deco 2" class="hero-image-deco" style="--i:2;">
+            </div>
+        </div>
+    </section>
+
+    <section class="deskripsi-pengguna-section-keren py-5">
+        <div class="container">
+            <div class="deskripsi-form-box">
+                <div class="text-center mb-4">
+                    <i class="fas fa-lightbulb fa-3x mb-3 icon-motivasi-keren"></i>
+                    <h2>Langkah Awal: Apa Smartphone Idamanku?</h2>
+                    <p class="text-muted lead-sm">Semakin detail kamu bercerita, semakin akurat kami membantu.</p>
+                </div>
+                
+                <form id="formDeskripsiPenggunaDiIndex">
+                    <div class="row g-lg-4 g-3">
+                        <div class="col-md-6 mb-3">
+                            <label for="kegunaanUtama" class="form-label-keren"><i class="fas fa-tasks me-2"></i>Untuk Apa Smartphone-mu Nanti?</label>
+                            <select class="form-select form-select-lg input-keren" id="kegunaanUtama" name="kegunaan_utama_deskripsi">
+                                <option value="" selected disabled>-- Pilih Kegunaan Utama --</option>
+                                <option value="fotografi">Fotografi & Videografi Profesional</option>
+                                <option value="gaming">Gaming Berat & Kompetitif</option>
+                                <option value="produktivitas">Produktivitas & Kerja Mobile</option>
+                                <option value="media_sosial">Konten Kreator & Media Sosial</option>
+                                <option value="sehari_hari">Aktivitas Sehari-hari & Komunikasi</option>
+                                <option value="lainnya_kegunaan">Lainnya (Jelaskan)</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="prioritasFitur" class="form-label-keren"><i class="fas fa-star me-2"></i>Fitur Apa yang Paling Penting?</label>
+                            <select class="form-select form-select-lg input-keren" id="prioritasFitur" name="prioritas_fitur_deskripsi">
+                                <option value="" selected disabled>-- Pilih Prioritas Fitur --</option>
+                                <option value="kamera">Kualitas Kamera Juara</option>
+                                <option value="performa">Performa Anti Lemot</option>
+                                <option value="baterai">Baterai Awet Seharian Penuh</option>
+                                <option value="layar">Layar Jernih Memanjakan Mata</option>
+                                <option value="desain">Desain Mewah & Build Kokoh</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-12 mb-3">
+                            <label for="deskripsiDetail" class="form-label-keren"><i class="fas fa-comment-dots me-2"></i>Cerita Tambahan (Opsional, tapi membantu!)</label>
+                            <textarea class="form-control form-control-lg input-keren" id="deskripsiDetail" name="deskripsi_detail_pengguna" rows="3" placeholder="Misal: Sering dipakai outdoor jadi butuh layar cerah, suka brand X karena..."></textarea>
+                        </div>
+                        
+                        <div class="col-12 mt-3 text-center">
+                            <button type="submit" id="tombolLanjutkanKeFilterDariIndex" class="btn btn-primary btn-lg btn-keren-submit">
+                                <i class="fas fa-arrow-circle-right me-2"></i>Langkah Berikutnya: Atur Filter
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="brands-keren py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title-keren-alt">Brand Terpercaya Pilihan Pengguna</h2>
+            <div class="brand-logos-keren">
+                <div class="brand-logo-item"><img src="images/samsung-logo.jpg" alt="Logo Samsung"></div>
+                <div class="brand-logo-item"><img src="images/ipon.png" alt="Logo Apple iPhone"></div>
+                <div class="brand-logo-item"><img src="images/xiaomi.png" alt="Logo Xiaomi"></div>
+                <div class="brand-logo-item"><img src="images/oppo.webp" alt="Logo Oppo"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-keren text-center py-5">
+        <div class="container">
+            <div class="logo-footer">PonselHub <i class="fas fa-mobile-alt"></i></div>
+            <p class="mt-2 mb-3 text-light-brown">Menemukan smartphone idaman jadi lebih mudah dan menyenangkan!</p>
+            <div class="social-icons-footer mb-3">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="mb-0 small text-light-brown">&copy; 2025 PonselHub. Dirancang dengan <i class="fas fa-heart text-danger"></i> untuk Anda.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
