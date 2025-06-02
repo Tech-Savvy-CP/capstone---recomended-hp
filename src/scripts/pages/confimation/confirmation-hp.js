@@ -4,7 +4,7 @@ export default class ConfirmationPage {
         <section class="container confirmation-container">
           <div class="confirmation-content">
             <div class="confirmation-card">
-              <h2 class="confirmation-title">Apakah rekomendasi sudah sesuai?</h2>
+              <h2 class="confirmation-title">Apakah filter rekomendasi sudah sesuai?</h2>
               <p class="confirmation-text">Dataset 1 mengenai data HP (nama, brand, ram dll)</p>
               <div class="confirmation-buttons">
                 
