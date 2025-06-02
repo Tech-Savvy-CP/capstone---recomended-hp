@@ -10,7 +10,7 @@ export default class HomePage {
             <div class="col-lg-6 text-start">
               <h1 class="display-5 fw-bold text-dark">Rekomendasi <span class="text-warning">HP</span></h1>
               <p class="lead">Temukan smartphone terbaik sesuai kebutuhanmu hanya dengan satu klik!</p>
-              <a href="#/review" class="btn btn-gold land btn-lg mt-3">Coba Sekarang</a>
+              <a href="#/input" class="btn btn-gold land btn-lg mt-3">Coba Sekarang</a>
             </div>
             <div class="col-lg-6">
               <img src="./images/hp1.png" class="hero-image land" alt="Smartphone">
