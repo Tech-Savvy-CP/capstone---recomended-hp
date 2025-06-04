@@ -11,13 +11,13 @@ export default class BrandHargaPage {
                   <option value="">Semua Brand</option>
                   <option value="Samsung">Samsung</option>
                   <option value="Xiaomi">Xiaomi</option>
-                  <option value="iPhone">iPhone</option>
-                  <option value="Oppo">Oppo</option>
-                  <option value="Vivo">Vivo</option>
+                  <option value="OPPO">OPPO</option>
+                  <option value="Motorola">Motorola</option>
+                  <option value="ASUS">ASUS</option>
                 </select>
               </div>
               <div class="filter-group">
-                <label for="hargaFilter">Harga Minimal:</label>
+                <label for="hargaFilter">Harga Maksimal:</label>
                 <select id="hargaFilter" class="filter-select">
                   <option value="0">Semua</option>
                   <option value="2">Rp.2.000.000</option>
@@ -27,7 +27,7 @@ export default class BrandHargaPage {
                 </select>
               </div>
               
-                <a href="#/confirmation"><button id="refineBtn" class="filter-button">Sempurnakan</button></a>
+                <button id="refineBtn" class="filter-button">Sempurnakan</button>
             </div>
           </div>
         </section>
@@ -177,10 +177,20 @@ export default class BrandHargaPage {
   }
 
   applyFilters() {
-    // Filter logic implementation
     const brandFilter = document.getElementById("brandFilter").value;
     const hargaFilter = document.getElementById("hargaFilter").value;
-    console.log("Applying filters:", { brandFilter, hargaFilter });
-    // Implement your actual filter logic here
+    
+    // Jika tidak memilih brand, default ke Samsung
+    const selectedBrand = brandFilter || 'Samsung';
+    const selectedMaxPrice = parseInt(hargaFilter) || 0; // dalam juta rupiah
+    
+    localStorage.setItem('selectedBrand', selectedBrand);
+    localStorage.setItem('selectedMaxPrice', selectedMaxPrice.toString());
+    
+    console.log('Brand saved to localStorage:', selectedBrand);
+    console.log('Max price saved to localStorage:', selectedMaxPrice, 'juta rupiah');
+    
+    // Setelah data tersimpan, redirect manual
+    window.location.hash = "/confirmation";
   }
 }
