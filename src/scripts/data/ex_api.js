@@ -151,7 +151,7 @@ const Phones = {
         .slice(0, 3) // ambil 3 HP terbaik
         .map(phone => ({
           id: phone.phone_model,
-          image: "https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pf-s73-pai-214-mockup_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=ba177b08cb14691a452d23b9557694d2", // default image
+          image: phone.model_image || "https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pf-s73-pai-214-mockup_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=ba177b08cb14691a452d23b9557694d2", // gunakan model_image asli atau fallback ke dummy
           name: phone.phone_model,
           price: convertToRupiah(phone.price),
           ram: phone.specs.Memory?.Internal || "N/A", // kirim data mentah untuk diparse di template
