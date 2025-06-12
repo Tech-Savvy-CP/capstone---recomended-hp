@@ -2,137 +2,253 @@ export default class AboutPage {
   async render() {
     return `
 
-    <section class="container about-container">
-        <h1 class="about-header">About Our Recomended App</h1>
-        <p class="view-transition-fade">
-          <strong>Recomended App Dicoding Powered By DBS</strong> Recomended with your favorite handphone
-        </p>
-
-        <div class="about-cards">
-          <div class="about-card view-transition-card">
-            <i data-feather="camera"></i>
-            <h3>Find your new phone</h3>
-            <p>Find your category phones.</p>
-          </div>
-
-          <div class="about-card view-transition-card">
-            <i data-feather="map-pin"></i>
-            <h3>Chooses your favorite handphones</h3>
-            <p>Add your unique favorite and view them on the interactive map with automatic markers.</p>
-          </div>
-
-          <div class="about-card view-transition-card">
-            <i data-feather="smartphone"></i>
-            <h3>All devices </h3>
-            <p>Designed with a responsive layout that looks great on all screen sizes.</p>
-          </div>
+       <section class="about-hero">
+        <div class="container">
+            <h1>Mengenal PonselHub Lebih Dekat</h1>
+            <p class="lead lead-about">Kami adalah Budget Wise, platform rekomendasi smartphone yang dirancang untuk menyederhanakan perjalanan Anda menemukan gadget idaman, tanpa ribet, tanpa pusing!</p>
         </div>
+    </section>
 
-        <p style="margin-top: 2rem;" class="view-transition-fade">Create by <strong>Febe & ML</strong>.</p>
-      </section>
-      <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-          }
+    <section class="content-section-about">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="mission-vision-box">
+                        <h3><i class="fas fa-bullseye"></i>Misi Utama Kami (Budget Wise)</h3>
+                        <p>Di era teknologi yang serba cepat dengan pilihan smartphone yang tak terhitung, kami hadir sebagai solusi komprehensif. Misi kami adalah memberdayakan Anda, para konsumen, untuk mengambil keputusan pembelian smartphone yang cerdas dan tepat sasaran. Kami ingin Anda terbebas dari kerumitan memilah spesifikasi, fitur, dan harga yang bervariasi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="content-section-about bg-light-shade">
+        <div class="container">
+            <h2 class="section-title-about">Pendekatan Inovatif Kami</h2>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="our-approach-item">
+                        <div class="icon-circle"><i class="fas fa-cogs"></i></div>
+                        <h4>Teknologi Cerdas</h4>
+                        <p>Dengan integrasi machine learning dan data mining, kami memberikan rekomendasi akurat dan personal berdasarkan kriteria unik Anda: mulai dari budget, performa, kamera, baterai, hingga preferensi merek.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="our-approach-item">
+                        <div class="icon-circle"><i class="fas fa-database"></i></div>
+                        <h4>Informasi Terpusat</h4>
+                        <p>Kami mengkompilasi spesifikasi dari berbagai sumber secara otomatis, menghilangkan kebutuhan Anda menjelajahi YouTube, forum, dan situs review yang tak terhitung jumlahnya.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="our-approach-item">
+                        <div class="icon-circle"><i class="fas fa-balance-scale-right"></i></div>
+                        <h4>Analisis Komprehensif</h4>
+                        <p>Lebih dari sekadar spek teknis, kami mempertimbangkan citra merek, fitur unggulan, OS, penyimpanan, hingga desain fisik untuk rekomendasi yang benar-benar menyeluruh.</p>
+                    </div>
+                </div>
+            </div>
+             <div class="row mt-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="our-approach-item">
+                        <div class="icon-circle"><i class="fas fa-clock"></i></div>
+                        <h4>Hemat Waktu & Tepat Sasaran</h4>
+                        <p>Tujuan utama kami: menyederhanakan proses, menghemat waktu Anda, dan meningkatkan akurasi agar investasi teknologi Anda optimal untuk jangka panjang.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="our-approach-item">
+                        <div class="icon-circle"><i class="fas fa-hand-pointer"></i></div>
+                        <h4>Antarmuka User-Friendly</h4>
+                        <p>Dengan navigasi yang mudah dan sistem rekomendasi terstruktur, temukan smartphone sesuai budget dan kebutuhan tanpa khawatir ketinggalan zaman.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-          body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-          }
+    <section class="cta-section-about">
+        <div class="container">
+            <h2>Siap Menemukan Smartphone Terbaik Anda?</h2>
+            <p class="lead mb-4">Jangan tunda lagi, mulailah perjalanan Anda bersama PonselHub sekarang!</p>
+            <a href="#/input" class="btn btn-primary btn-lg btn-keren-submit">
+                <i class="fas fa-arrow-right me-2"></i>Mulai Pencarian Sekarang!
+            </a>
+        </div>
+    </section>
 
-          .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-          }
-
-          .about-container {
+    <style>
+       /* Style khusus untuk halaman Tentang Kami, bisa juga ditambahkan ke styles.css utama */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(100, 70, 50, 0.7), rgba(74, 59, 49, 0.85)), url('images/background_tentang.jpg') no-repeat center center; /* Ganti dengan gambar latar yang relevan */
+            background-size: cover;
+            padding: 80px 0;
+            color: white;
             text-align: center;
-            padding: 40px 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          }
+            margin-top: -15px; /* Menarik section ini ke atas, menutupi padding-top body */
+            padding-top: calc(75px + 80px); /* Kompensasi padding-top body + padding section normal */
+        }
+        .about-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .about-hero .lead-about {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            font-weight: 300;
+        }
 
-          .about-header {
+        .content-section-about {
+            padding: 60px 0;
+        }
+        .section-title-about {
+            text-align: center;
+            margin-bottom: 50px;
             font-size: 2.5rem;
-            color: #333;
-            margin-bottom: 20px;
-          }
+            font-weight: 700;
+            color: #4A3B31; /* Coklat tua pekat */
+            position: relative;
+        }
+        .section-title-about::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #B08D57; /* Gold lembut */
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
 
-          .view-transition-fade {
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-          }
-
-          @keyframes fadeIn {
-            to {
-              opacity: 1;
-            }
-          }
-
-          .about-cards {
+        .mission-vision-box {
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+            margin-bottom: 40px;
+        }
+        .mission-vision-box h3 {
+            color: #6F4E37; /* Coffee brown */
+            font-weight: 600;
+            margin-bottom: 15px;
             display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            margin-top: 30px;
-          }
-
-          .about-card {
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            padding: 20px;
-            flex: 1;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-          }
-
-          .about-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-          }
-
-          .about-card i {
-            font-size: 3rem;
-            color: #4CAF50;
-            margin-bottom: 10px;
-          }
-
-          .about-card h3 {
+            align-items: center;
+        }
+        .mission-vision-box h3 i {
             font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 10px;
-          }
+            margin-right: 12px;
+            color: #8B4513; /* SaddleBrown */
+        }
+        .mission-vision-box p {
+            color: #5a4a42; /* Coklat lebih lembut untuk teks */
+            line-height: 1.8;
+        }
 
-          .about-card p {
-            font-size: 1rem;
-            color: #666;
-          }
-
-          .view-transition-card {
-            opacity: 0;
-            animation: fadeInCard 1s forwards;
-            animation-delay: 0.2s;
-          }
-
-          @keyframes fadeInCard {
-            to {
-              opacity: 1;
-            }
-          }
-
-          p {
+        .our-approach-item {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .our-approach-item .icon-circle {
+            width: 80px;
+            height: 80px;
+            background-image: linear-gradient(to bottom right, #8B4513, #A0522D);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 4px 10px rgba(139, 69, 19, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .our-approach-item:hover .icon-circle {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 6px 15px rgba(139, 69, 19, 0.4);
+        }
+        .our-approach-item h4 {
             font-size: 1.2rem;
-            color: #333;
-            margin-top: 20px;
-          }
+            font-weight: 600;
+            color: #6F4E37;
+            margin-bottom: 10px;
+        }
+        .our-approach-item p {
+            font-size: 0.9rem;
+            color: #5a4a42;
+        }
 
-      </style>
+        .cta-section-about {
+            background-color: #EADDCA; /* Lighter milk coffee variant */
+            padding: 50px 0;
+            text-align: center;
+        }
+        .cta-section-about h2 {
+            color: #4A3B31;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+        
+        .text-highlight-gold {
+        color: #B08D57;
+        font-weight: 600;
+        }
+        .icon-motivasi-keren {
+            color: #8B4513; 
+            opacity: 0.9;
+            margin-bottom: 0.75rem !important;
+        }
+        .btn-keren-submit {
+            background-image: linear-gradient(to right, #8B4513 0%, #A0522D 50%, #8B4513 100%);
+            background-size: 200% auto; 
+            border: none;
+            color: white;
+            padding: 14px 35px; 
+            font-size: 1.1rem;
+            font-weight: 600; 
+            letter-spacing: 0.5px;
+            border-radius: 50px; 
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3); 
+            transition: all 0.4s ease-out;
+            text-transform: uppercase;
+        }
+        .btn-keren-submit:hover, .btn-keren-submit:focus {
+            transform: translateY(-4px) scale(1.02); 
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.4);
+            background-position: right center; 
+            color: white; 
+        }
+        .btn-keren-submit i { 
+            transition: transform 0.3s ease;
+            margin-right: 8px; 
+        }
+        .btn-keren-submit:hover i {
+            transform: translateX(4px) rotate(10deg); 
+        }
 
+        .input-keren {
+            border-radius: 8px !important;
+            border: 1px solid #D2B48C !important;
+            padding-top: 0.75rem !important; 
+            padding-bottom: 0.75rem !important;
+            transition: all 0.3s ease;
+            background-color: #fff; 
+        }
+        .input-keren:focus {
+            border-color: #8B4513 !important;
+            box-shadow: 0 0 0 0.25rem rgba(139, 69, 19, 0.15) !important;
+            background-color: #fff !important; 
+        }
+        .form-label-keren {
+            color: #6F4E37; 
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .form-label-keren i {
+            color: #A0522D; 
+        }
+    </style>
      
     `;
   }

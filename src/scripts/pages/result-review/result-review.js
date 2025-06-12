@@ -18,7 +18,7 @@ export default class ResultPage {
                 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
                     <div class="col-10 col-sm-8 col-lg-6" style="text-align: center;">
                         <div style="width: 420px; height: 420px; overflow: hidden; border-radius: 50%; margin: auto;">
-                            <img src="https://3.bp.blogspot.com/-YJVAl6dDV-4/W5PD8YIgSrI/AAAAAAAAAWU/q6mHui1I1jUaMR2UzAcmBd3aFJQv62i7ACK4BGAYYCw/s1600/6.jpg" 
+                            <img src="https://cdn1.productnation.co/stg/sites/2/628f03fa43923.jpeg" 
                                 class="d-block mx-lg-auto img-fluid" alt="Phones" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                     </div>
@@ -42,7 +42,7 @@ export default class ResultPage {
         <section class="popular-now result" style="background-image: linear-gradient(to bottom, #F6EBDA 50%, #fff 50%);" id="result">
             <div class="container mb-5">
                 <h4>Phone <span style="border-bottom: 3px solid #FF902A;">Result</span></h4>
-                <p>Data set 1 => HP <span id="current-selection" class="text-muted"></span></p>
+               <span id="current-selection" class="text-muted"></span></p>
                 <div class="container pb-5 mb-5"
                     style="background-image: linear-gradient(to bottom, #F6EBDA 30%, #F9D9AA 30%);">
                     <div class="row justify-content-center gap-5" id="phones">
@@ -86,7 +86,7 @@ export default class ResultPage {
                             margin-left: auto;
                             margin-right: auto;
                         ">
-                            Data set 2 => review <span id="review-selection" style="
+                             <span id="review-selection" style="
                                 color: #FF902A;
                                 font-weight: 600;
                             ">(Klik HP di atas untuk melihat review spesifik)</span>
