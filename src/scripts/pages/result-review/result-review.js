@@ -10,7 +10,7 @@ export default class ResultPage {
   #presenter;
   #selectedPhoneModel = null;
   #selectedBrand = null;
-  
+
   async render() {
     return `
          <section class="hero">
@@ -457,62 +457,151 @@ export default class ResultPage {
     });
 
     // Ambil merk dari localStorage, default ke Samsung jika tidak ada
-    this.#selectedBrand = localStorage.getItem('selectedBrand') || 'Samsung';
-    const selectedMaxPrice = parseInt(localStorage.getItem('selectedMaxPrice')) || 0;
-    console.log('Selected brand from localStorage:', this.#selectedBrand);
-    console.log('Selected max price from localStorage:', selectedMaxPrice, 'juta rupiah');
+    this.#selectedBrand = localStorage.getItem("selectedBrand") || "Samsung";
+    const selectedMaxPrice =
+      parseInt(localStorage.getItem("selectedMaxPrice")) || 0;
+    console.log("Selected brand from localStorage:", this.#selectedBrand);
+    console.log(
+      "Selected max price from localStorage:",
+      selectedMaxPrice,
+      "juta rupiah"
+    );
 
     // Update current selection display
-    document.getElementById('current-selection').textContent = `(Brand: ${this.#selectedBrand})`;
+    document.getElementById("current-selection").textContent = `(Brand: ${
+      this.#selectedBrand
+    })`;
 
     // Tampilkan HP berdasarkan brand yang dipilih
     await this.#presenter.showPhonesByBrand(this.#selectedBrand);
-    
+
     // Setup phone card click listeners
     this.setupPhoneCardListeners();
-    
+
     // Default: tampilkan review untuk brand secara umum
     await this.#presenter.showCommentByBrand(this.#selectedBrand);
 
     // Setup review control listeners
     this.setupReviewControls();
-    
+
     // Setup other button listeners
     this.setupOtherListeners();
-    
+
     // Tambahkan hint untuk user bahwa HP bisa diklik
     this.showPhoneClickHint();
   }
 
+  setupReviewControls() {
+    // Toggle logic
+    const ytBtn = document.getElementById("ytReviewBtn");
+    const ecomBtn = document.getElementById("ecomReviewBtn");
+    ytBtn.classList.add("active");
+    ecomBtn.classList.remove("active");
+
+    ytBtn.addEventListener("click", async () => {
+      ytBtn.classList.add("active");
+      ecomBtn.classList.remove("active");
+      document.getElementById("refreshReviewBtn").style.display =
+        "inline-block";
+
+      if (this.#selectedPhoneModel) {
+        await this.#presenter.showCommentByPhoneModel(
+          this.#selectedBrand,
+          this.#selectedPhoneModel
+        );
+      } else {
+        await this.#presenter.showCommentByBrand(this.#selectedBrand);
+      }
+
+      // Force tampilkan review setelah load
+      this.forceShowReviews();
+    });
+
+    ecomBtn.addEventListener("click", async () => {
+      ytBtn.classList.remove("active");
+      ecomBtn.classList.add("active");
+      // Tampilkan refresh button untuk e-commerce juga
+      document.getElementById("refreshReviewBtn").style.display =
+        "inline-block";
+
+      // Tampilkan review e-commerce
+      if (this.#selectedPhoneModel) {
+        await this.#presenter.showEcommerceReviewByPhoneModel(
+          this.#selectedBrand,
+          this.#selectedPhoneModel
+        );
+      } else {
+        await this.#presenter.showEcommerceReviewByBrand(this.#selectedBrand);
+      }
+
+      // Force tampilkan review setelah load
+      this.forceShowReviews();
+    });
+
+    // Refresh button logic - Updated untuk support kedua jenis review
+    const refreshBtn = document.getElementById("refreshReviewBtn");
+    refreshBtn.addEventListener("click", async () => {
+      if (ytBtn.classList.contains("active")) {
+        // Refresh YouTube reviews
+        await this.#presenter.showRandomCommentByBrand(this.#selectedBrand);
+      } else if (ecomBtn.classList.contains("active")) {
+        // Refresh E-commerce reviews
+        await this.#presenter.showRandomEcommerceReviewByBrand(
+          this.#selectedBrand
+        );
+      }
+
+      // Panggil forceShowReviews untuk memastikan tampil
+      this.forceShowReviews();
+    });
+
+    // Show refresh button by default (YouTube is active)
+    refreshBtn.style.display = "inline-block";
+  }
+
   setupPhoneCardListeners() {
     // Tambahkan event listener untuk phone cards
-    document.addEventListener('click', async (e) => {
-      const phoneCard = e.target.closest('.phone-card');
+    document.addEventListener("click", async (e) => {
+      const phoneCard = e.target.closest(".phone-card");
       if (phoneCard) {
         // Remove previous selection
-        document.querySelectorAll('.phone-card').forEach(card => {
-          card.classList.remove('selected');
+        document.querySelectorAll(".phone-card").forEach((card) => {
+          card.classList.remove("selected");
         });
-        
+
         // Add selection to clicked card
-        phoneCard.classList.add('selected');
-        
+        phoneCard.classList.add("selected");
+
         // Get phone model from data attribute
         const phoneModel = phoneCard.dataset.phoneModel;
         this.#selectedPhoneModel = phoneModel;
-        
+
         // Update selection display
-        document.getElementById('review-selection').innerHTML = `untuk <strong>${phoneModel}</strong>`;
-        
-        // Load reviews for this specific phone model
-        const ytBtn = document.getElementById('ytReviewBtn');
-        if (ytBtn.classList.contains('active')) {
-          await this.#presenter.showCommentByPhoneModel(this.#selectedBrand, phoneModel);
+        document.getElementById(
+          "review-selection"
+        ).innerHTML = `untuk <strong>${phoneModel}</strong>`;
+
+        // Load reviews for this specific phone model based on active tab
+        const ytBtn = document.getElementById("ytReviewBtn");
+        const ecomBtn = document.getElementById("ecomReviewBtn");
+
+        if (ytBtn.classList.contains("active")) {
+          await this.#presenter.showCommentByPhoneModel(
+            this.#selectedBrand,
+            phoneModel
+          );
+        } else if (ecomBtn.classList.contains("active")) {
+          await this.#presenter.showEcommerceReviewByPhoneModel(
+            this.#selectedBrand,
+            phoneModel
+          );
         }
-        
+
         // Auto scroll to review section
-        document.getElementById('review').scrollIntoView({ behavior: 'smooth' });
-        
+        document
+          .getElementById("review")
+          .scrollIntoView({ behavior: "smooth" });
+
         // Force tampilkan review dan update button state
         this.forceShowReviews();
       }
@@ -524,106 +613,79 @@ export default class ResultPage {
     setTimeout(() => {
       const reviewSections = document.querySelectorAll(".review-section");
       const toggleButton = document.getElementById("toggleButton");
-      
-      console.log('Found review sections:', reviewSections.length);
-      
+
+      console.log("Found review sections:", reviewSections.length);
+
       if (reviewSections.length > 0) {
         reviewSections.forEach(function (section) {
-          section.classList.remove('hide');
-          section.classList.add('show');
+          section.classList.remove("hide");
+          section.classList.add("show");
           // Backup dengan inline style juga
           section.style.display = "block";
           section.style.visibility = "visible";
           section.style.opacity = "1";
         });
-        
+
         // Update tombol toggle
-        toggleButton.innerHTML = '<i class="fa fa-eye-slash" style="margin-right: 8px;"></i><span class="button-text">Sembunyikan Review</span>';
-        console.log('Reviews forced to show');
+        toggleButton.innerHTML =
+          '<i class="fa fa-eye-slash" style="margin-right: 8px;"></i><span class="button-text">Sembunyikan Review</span>';
+        console.log("Reviews forced to show");
       } else {
-        console.log('No reviews found yet, retrying...');
+        console.log("No reviews found yet, retrying...");
         // Retry setelah delay lebih lama jika belum ada review
         setTimeout(() => this.forceShowReviews(), 500);
       }
     }, 1000);
   }
 
-  setupReviewControls() {
-    // Toggle logic
-    const ytBtn = document.getElementById('ytReviewBtn');
-    const ecomBtn = document.getElementById('ecomReviewBtn');
-    ytBtn.classList.add('active');
-    ecomBtn.classList.remove('active');
-
-    ytBtn.addEventListener('click', async () => {
-      ytBtn.classList.add('active');
-      ecomBtn.classList.remove('active');
-      document.getElementById('refreshReviewBtn').style.display = 'inline-block';
-      
-      if (this.#selectedPhoneModel) {
-        await this.#presenter.showCommentByPhoneModel(this.#selectedBrand, this.#selectedPhoneModel);
-      } else {
-        await this.#presenter.showCommentByBrand(this.#selectedBrand);
-      }
-    });
-    
-    ecomBtn.addEventListener('click', async () => {
-      ytBtn.classList.remove('active');
-      ecomBtn.classList.add('active');
-      document.getElementById('refreshReviewBtn').style.display = 'none';
-      this.showComment([
-        { coment: 'Belum ada data review e-commerce.', nama: '-' }
-      ]);
-    });
-
-    // Refresh button logic
-    const refreshBtn = document.getElementById('refreshReviewBtn');
-    refreshBtn.addEventListener('click', async () => {
-      if (ytBtn.classList.contains('active')) {
-        await this.#presenter.showRandomCommentByBrand(this.#selectedBrand);
-        // Panggil forceShowReviews untuk memastikan tampil
-        this.forceShowReviews();
-      }
-    });
-
-    // Show refresh button by default (YouTube is active)
-    refreshBtn.style.display = 'inline-block';
-  }
-
   setupOtherListeners() {
-    document.getElementById("toggleButton").addEventListener("click", function () {
-      const reviewSections = document.querySelectorAll(".review-section");
-      const button = document.getElementById("toggleButton");
+    document
+      .getElementById("toggleButton")
+      .addEventListener("click", function () {
+        const reviewSections = document.querySelectorAll(".review-section");
+        const button = document.getElementById("toggleButton");
 
-      let allVisible = Array.from(reviewSections).every(section => 
-        section.classList.contains('show') || section.style.display !== 'none'
-      );
+        let allVisible = Array.from(reviewSections).every(
+          (section) =>
+            section.classList.contains("show") ||
+            section.style.display !== "none"
+        );
 
-      if (allVisible) {
-        reviewSections.forEach(function (section) {
-          section.classList.remove('show');
-          section.classList.add('hide');
-          section.style.display = "none";
-        });
-        button.innerHTML = '<i class="fa fa-eye" style="margin-right: 8px;"></i><span class="button-text">Tampilkan Review</span>';
-      } else {
-        reviewSections.forEach(function (section) {
-          section.classList.remove('hide');
-          section.classList.add('show');
-          section.style.display = "block";
-        });
-        button.innerHTML = '<i class="fa fa-eye-slash" style="margin-right: 8px;"></i><span class="button-text">Sembunyikan Review</span>';
-      }
-    });
+        if (allVisible) {
+          reviewSections.forEach(function (section) {
+            section.classList.remove("show");
+            section.classList.add("hide");
+            section.style.display = "none";
+          });
+          button.innerHTML =
+            '<i class="fa fa-eye" style="margin-right: 8px;"></i><span class="button-text">Tampilkan Review</span>';
+        } else {
+          reviewSections.forEach(function (section) {
+            section.classList.remove("hide");
+            section.classList.add("show");
+            section.style.display = "block";
+          });
+          button.innerHTML =
+            '<i class="fa fa-eye-slash" style="margin-right: 8px;"></i><span class="button-text">Sembunyikan Review</span>';
+        }
+      });
 
     // Menambahkan event listener untuk tombol
-    document.getElementById("findNowButton").addEventListener("click", function () {
-      document.getElementById("result").scrollIntoView({ behavior: "smooth" });
-    });
+    document
+      .getElementById("findNowButton")
+      .addEventListener("click", function () {
+        document
+          .getElementById("result")
+          .scrollIntoView({ behavior: "smooth" });
+      });
 
-    document.getElementById("findReviewButton").addEventListener("click", function () {
-      document.getElementById("review").scrollIntoView({ behavior: "smooth" });
-    });
+    document
+      .getElementById("findReviewButton")
+      .addEventListener("click", function () {
+        document
+          .getElementById("review")
+          .scrollIntoView({ behavior: "smooth" });
+      });
   }
 
   showComment(comment) {
@@ -642,7 +704,7 @@ export default class ResultPage {
       ""
     );
     document.getElementById("phones").innerHTML = html;
-    
+
     // Re-setup phone card listeners after phones are rendered
     setTimeout(() => {
       this.setupPhoneCardListeners();
@@ -654,7 +716,7 @@ export default class ResultPage {
       <div class="loader"></div>
     `;
   }
-  
+
   hideLoading() {
     document.getElementById("loading-container").innerHTML = "";
   }
@@ -662,15 +724,15 @@ export default class ResultPage {
   showPhoneClickHint() {
     // Tampilkan hint setelah HP cards loaded
     setTimeout(() => {
-      const phoneCards = document.querySelectorAll('.phone-card');
+      const phoneCards = document.querySelectorAll(".phone-card");
       if (phoneCards.length > 0) {
         // Tambahkan efek pulse pada card pertama sebagai hint
         const firstCard = phoneCards[0];
-        firstCard.style.animation = 'pulseHint 2s ease-in-out 3';
-        
+        firstCard.style.animation = "pulseHint 2s ease-in-out 3";
+
         // Hapus animasi setelah selesai
         setTimeout(() => {
-          firstCard.style.animation = '';
+          firstCard.style.animation = "";
         }, 6000);
       }
     }, 1000);
