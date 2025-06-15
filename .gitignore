@@ -7,3 +7,5 @@ dist
 # Files
 .env
 .DS_Store
+*.log
+railway.toml
